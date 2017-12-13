@@ -462,8 +462,8 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
                             // dont use a directive for this
                             var nextSlideIndexCompareValue = isRepeatBased ? repeatCollection.replace('::', '') + '.length - 1' : currentSlides.length - 1;
                             var tpl = '<div class="rn-carousel-controls">\n' +
-                                '  <span class="rn-carousel-control rn-carousel-control-prev" ng-keyup="$event.keyCode == 13 && prevSlide()" ng-click="prevSlide()" role="button" tabindex="0" ng-if="carouselIndex > 0"></span>\n' +
-                                '  <span class="rn-carousel-control rn-carousel-control-next" ng-keyup="$event.keyCode == 13 && nextSlide()" ng-click="nextSlide()" role="button" tabindex="0" ng-if="carouselIndex < ' + nextSlideIndexCompareValue + '"></span>\n' +
+                                '  <span class="rn-carousel-control rn-carousel-control-prev" aria-label="Previous slide" ng-keyup="$event.keyCode == 13 && prevSlide()" ng-click="prevSlide()" role="button" tabindex="0" ng-if="carouselIndex > 0"></span>\n' +
+                                '  <span class="rn-carousel-control rn-carousel-control-next" aria-label="Next slide" ng-keyup="$event.keyCode == 13 && nextSlide()" ng-click="nextSlide()" role="button" tabindex="0" ng-if="carouselIndex < ' + nextSlideIndexCompareValue + '"></span>\n' +
                                 '</div>';
                             iElement.parent().append($compile(angular.element(tpl))(scope));
                         }
