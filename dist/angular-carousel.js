@@ -1,6 +1,6 @@
 /**
  * Angular Carousel - Mobile friendly touch carousel for AngularJS
- * @version v0.3.12 - 2017-11-17
+ * @version v0.3.12 - 2017-12-13
  * @link http://revolunet.github.com/angular-carousel
  * @author Julien Bouquillon <julien@revolunet.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -139,8 +139,15 @@ angular.module('angular-carousel').run(['$templateCache', function($templateCach
     .service('computeCarouselSlideStyle', ["DeviceCapabilities", function(DeviceCapabilities) {
         // compute transition transform properties for a given slide and global offset
         return function(slideIndex, offset, transitionType) {
+
+            var curDisplayType = 'none';
+            var testIndex = (slideIndex * 100) + offset;
+            if (testIndex == 0){
+                curDisplayType = 'inline-block';
+            }
+
             var style = {
-                    display: 'inline-block'
+                    display: curDisplayType
                 },
                 opacity,
                 absoluteLeft = (slideIndex * 100) + offset,

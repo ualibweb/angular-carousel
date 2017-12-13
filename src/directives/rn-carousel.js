@@ -60,8 +60,15 @@
     .service('computeCarouselSlideStyle', function(DeviceCapabilities) {
         // compute transition transform properties for a given slide and global offset
         return function(slideIndex, offset, transitionType) {
+
+            var curDisplayType = 'none';
+            var testIndex = (slideIndex * 100) + offset;
+            if (testIndex == 0){
+                curDisplayType = 'inline-block';
+            }
+
             var style = {
-                    display: 'inline-block'
+                    display: curDisplayType
                 },
                 opacity,
                 absoluteLeft = (slideIndex * 100) + offset,
